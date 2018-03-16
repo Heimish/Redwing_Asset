@@ -1,0 +1,596 @@
+fileFormatVersion: 2
+guid: c828f769dd3e02d46bc3a9f0195af116
+timeCreated: 1520576680
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Bip001
+    100002: Bip001 Footsteps
+    100004: Bip001 Head
+    100006: Bip001 HeadNub
+    100008: Bip001 L Calf
+    100010: Bip001 L Clavicle
+    100012: Bip001 L Finger0
+    100014: Bip001 L Finger01
+    100016: Bip001 L Finger02
+    100018: Bip001 L Finger0Nub
+    100020: Bip001 L Finger1
+    100022: Bip001 L Finger11
+    100024: Bip001 L Finger12
+    100026: Bip001 L Finger1Nub
+    100028: Bip001 L Finger2
+    100030: Bip001 L Finger21
+    100032: Bip001 L Finger22
+    100034: Bip001 L Finger2Nub
+    100036: Bip001 L Finger3
+    100038: Bip001 L Finger31
+    100040: Bip001 L Finger32
+    100042: Bip001 L Finger3Nub
+    100044: Bip001 L Finger4
+    100046: Bip001 L Finger41
+    100048: Bip001 L Finger42
+    100050: Bip001 L Finger4Nub
+    100052: Bip001 L Foot
+    100054: Bip001 L Forearm
+    100056: Bip001 L Hand
+    100058: Bip001 L Thigh
+    100060: Bip001 L Toe0
+    100062: Bip001 L Toe0Nub
+    100064: Bip001 L UpperArm
+    100066: Bip001 Neck
+    100068: Bip001 Pelvis
+    100070: Bip001 R Calf
+    100072: Bip001 R Clavicle
+    100074: Bip001 R Finger0
+    100076: Bip001 R Finger01
+    100078: Bip001 R Finger02
+    100080: Bip001 R Finger0Nub
+    100082: Bip001 R Finger1
+    100084: Bip001 R Finger11
+    100086: Bip001 R Finger12
+    100088: Bip001 R Finger1Nub
+    100090: Bip001 R Finger2
+    100092: Bip001 R Finger21
+    100094: Bip001 R Finger22
+    100096: Bip001 R Finger2Nub
+    100098: Bip001 R Finger3
+    100100: Bip001 R Finger31
+    100102: Bip001 R Finger32
+    100104: Bip001 R Finger3Nub
+    100106: Bip001 R Finger4
+    100108: Bip001 R Finger41
+    100110: Bip001 R Finger42
+    100112: Bip001 R Finger4Nub
+    100114: Bip001 R Foot
+    100116: Bip001 R Forearm
+    100118: Bip001 R Hand
+    100120: Bip001 R Thigh
+    100122: Bip001 R Toe0
+    100124: Bip001 R Toe0Nub
+    100126: Bip001 R UpperArm
+    100128: Bip001 Spine
+    100130: Bip001 Spine1
+    100132: Bip001 Spine2
+    100134: pasted__pasted__pasted__pCube36
+    100136: pasted__pasted__pasted__pCube37
+    100138: pasted__pasted__pasted__pCube38
+    100140: pasted__pasted__pasted__pCube39
+    100142: pasted__pasted__pasted__pCylinder11
+    100144: pasted__pasted__pasted__pCylinder12
+    100146: pasted__pasted__pasted__pCylinder13
+    100148: pasted__pasted__pCube26
+    100150: pasted__pasted__pCube27
+    100152: pasted__pasted__pCube28
+    100154: pasted__pasted__pCube29
+    100156: pasted__pasted__pCube38
+    100158: pasted__pasted__pCube39
+    100160: pasted__pasted__pCube40
+    100162: pasted__pasted__pCube41
+    100164: pasted__pasted__pCube42
+    100166: pasted__pasted__pCube44
+    100168: pasted__pasted__pCube45
+    100170: pasted__pasted__pCube46
+    100172: pasted__pasted__pCube47
+    100174: pasted__pasted__pCube48
+    100176: pasted__pasted__pCube49
+    100178: pasted__pasted__pCube50
+    100180: pasted__pasted__pCube51
+    100182: pasted__pasted__pCube52
+    100184: pasted__pasted__pCube53
+    100186: pasted__pasted__pCube54
+    100188: pasted__pasted__pCylinder11
+    100190: pasted__pasted__pCylinder12
+    100192: pasted__pasted__pCylinder13
+    100194: pasted__pasted__pCylinder16
+    100196: pasted__pasted__pCylinder17
+    100198: pasted__pasted__pCylinder18
+    100200: pasted__pasted__pCylinder19
+    100202: pasted__pasted__pPipe1
+    100204: pasted__pasted__pPipe2
+    100206: pasted__pasted__pPipe3
+    100208: pasted__pasted__pPipe4
+    100210: pasted__pCube3
+    100212: pasted__pCube4
+    100214: pasted__pCube43
+    100216: pasted__pCube45
+    100218: pasted__pCube46
+    100220: pasted__pCylinder1
+    100222: pasted__pCylinder11
+    100224: pCube12
+    100226: pCube14
+    100228: pCube15
+    100230: pCube16
+    100232: pCube17
+    100234: pCube2
+    100236: pCube3
+    100238: pCube4
+    100240: pCube44
+    100242: pCube45
+    100244: pCube5
+    100246: pCube6
+    100248: pCube7
+    100250: pCube9
+    100252: pCylinder1
+    100254: pCylinder11
+    100256: pCylinder3
+    100258: pCylinder4
+    100260: pCylinder5
+    100262: pCylinder7
+    100264: pCylinder8
+    100266: pCylinder9
+    100268: pTorus1
+    100270: Shield
+    100272: shoulder L
+    100274: shoulder R
+    100276: Skirt_Back_L_1
+    100278: Skirt_Back_L_2
+    100280: Skirt_Back_L_3
+    100282: Skirt_Back_R_1
+    100284: Skirt_Back_R_2
+    100286: Skirt_Back_R_3
+    100288: Skirt_Front_L_1
+    100290: Skirt_Front_L_2
+    100292: Skirt_Front_L_3
+    100294: Skirt_Front_R_1
+    100296: Skirt_Front_R_2
+    100298: Skirt_Front_R_3
+    100300: Skirt_Left_1
+    100302: Skirt_Left_2
+    100304: Skirt_Left_3
+    100306: Skirt_Right_1
+    100308: Skirt_Right_2
+    100310: Skirt_Right_3
+    100312: Sword
+    100314: //RootNode
+    100316: transform100
+    100318: transform101
+    100320: transform102
+    100322: transform103
+    100324: transform36
+    100326: transform37
+    100328: transform38
+    100330: transform39
+    100332: transform40
+    100334: transform41
+    100336: transform42
+    100338: transform43
+    100340: transform44
+    100342: transform45
+    100344: transform46
+    100346: transform47
+    100348: transform48
+    100350: transform49
+    100352: transform50
+    100354: transform51
+    100356: transform52
+    100358: transform53
+    100360: transform54
+    100362: transform55
+    100364: transform56
+    100366: transform57
+    100368: transform58
+    100370: transform59
+    100372: transform60
+    100374: transform61
+    100376: transform62
+    100378: transform63
+    100380: transform64
+    100382: transform65
+    100384: transform66
+    100386: transform67
+    100388: transform68
+    100390: transform69
+    100392: transform70
+    100394: transform71
+    100396: transform72
+    100398: transform73
+    100400: transform74
+    100402: transform75
+    100404: transform76
+    100406: transform77
+    100408: transform78
+    100410: transform79
+    100412: transform80
+    100414: transform81
+    100416: transform82
+    100418: transform83
+    100420: transform84
+    100422: transform85
+    100424: transform86
+    100426: transform87
+    100428: transform88
+    100430: transform89
+    100432: transform90
+    100434: transform91
+    100436: transform92
+    100438: transform93
+    100440: transform94
+    100442: transform95
+    100444: transform96
+    100446: transform97
+    100448: transform98
+    100450: transform99
+    100452: Twin_L
+    100454: Twin_L1
+    100456: Twin_L2
+    100458: Twin_L3
+    100460: Twin_R
+    100462: Twin_R1
+    100464: Twin_R2
+    100466: Twin_R3
+    400000: Bip001
+    400002: Bip001 Footsteps
+    400004: Bip001 Head
+    400006: Bip001 HeadNub
+    400008: Bip001 L Calf
+    400010: Bip001 L Clavicle
+    400012: Bip001 L Finger0
+    400014: Bip001 L Finger01
+    400016: Bip001 L Finger02
+    400018: Bip001 L Finger0Nub
+    400020: Bip001 L Finger1
+    400022: Bip001 L Finger11
+    400024: Bip001 L Finger12
+    400026: Bip001 L Finger1Nub
+    400028: Bip001 L Finger2
+    400030: Bip001 L Finger21
+    400032: Bip001 L Finger22
+    400034: Bip001 L Finger2Nub
+    400036: Bip001 L Finger3
+    400038: Bip001 L Finger31
+    400040: Bip001 L Finger32
+    400042: Bip001 L Finger3Nub
+    400044: Bip001 L Finger4
+    400046: Bip001 L Finger41
+    400048: Bip001 L Finger42
+    400050: Bip001 L Finger4Nub
+    400052: Bip001 L Foot
+    400054: Bip001 L Forearm
+    400056: Bip001 L Hand
+    400058: Bip001 L Thigh
+    400060: Bip001 L Toe0
+    400062: Bip001 L Toe0Nub
+    400064: Bip001 L UpperArm
+    400066: Bip001 Neck
+    400068: Bip001 Pelvis
+    400070: Bip001 R Calf
+    400072: Bip001 R Clavicle
+    400074: Bip001 R Finger0
+    400076: Bip001 R Finger01
+    400078: Bip001 R Finger02
+    400080: Bip001 R Finger0Nub
+    400082: Bip001 R Finger1
+    400084: Bip001 R Finger11
+    400086: Bip001 R Finger12
+    400088: Bip001 R Finger1Nub
+    400090: Bip001 R Finger2
+    400092: Bip001 R Finger21
+    400094: Bip001 R Finger22
+    400096: Bip001 R Finger2Nub
+    400098: Bip001 R Finger3
+    400100: Bip001 R Finger31
+    400102: Bip001 R Finger32
+    400104: Bip001 R Finger3Nub
+    400106: Bip001 R Finger4
+    400108: Bip001 R Finger41
+    400110: Bip001 R Finger42
+    400112: Bip001 R Finger4Nub
+    400114: Bip001 R Foot
+    400116: Bip001 R Forearm
+    400118: Bip001 R Hand
+    400120: Bip001 R Thigh
+    400122: Bip001 R Toe0
+    400124: Bip001 R Toe0Nub
+    400126: Bip001 R UpperArm
+    400128: Bip001 Spine
+    400130: Bip001 Spine1
+    400132: Bip001 Spine2
+    400134: pasted__pasted__pasted__pCube36
+    400136: pasted__pasted__pasted__pCube37
+    400138: pasted__pasted__pasted__pCube38
+    400140: pasted__pasted__pasted__pCube39
+    400142: pasted__pasted__pasted__pCylinder11
+    400144: pasted__pasted__pasted__pCylinder12
+    400146: pasted__pasted__pasted__pCylinder13
+    400148: pasted__pasted__pCube26
+    400150: pasted__pasted__pCube27
+    400152: pasted__pasted__pCube28
+    400154: pasted__pasted__pCube29
+    400156: pasted__pasted__pCube38
+    400158: pasted__pasted__pCube39
+    400160: pasted__pasted__pCube40
+    400162: pasted__pasted__pCube41
+    400164: pasted__pasted__pCube42
+    400166: pasted__pasted__pCube44
+    400168: pasted__pasted__pCube45
+    400170: pasted__pasted__pCube46
+    400172: pasted__pasted__pCube47
+    400174: pasted__pasted__pCube48
+    400176: pasted__pasted__pCube49
+    400178: pasted__pasted__pCube50
+    400180: pasted__pasted__pCube51
+    400182: pasted__pasted__pCube52
+    400184: pasted__pasted__pCube53
+    400186: pasted__pasted__pCube54
+    400188: pasted__pasted__pCylinder11
+    400190: pasted__pasted__pCylinder12
+    400192: pasted__pasted__pCylinder13
+    400194: pasted__pasted__pCylinder16
+    400196: pasted__pasted__pCylinder17
+    400198: pasted__pasted__pCylinder18
+    400200: pasted__pasted__pCylinder19
+    400202: pasted__pasted__pPipe1
+    400204: pasted__pasted__pPipe2
+    400206: pasted__pasted__pPipe3
+    400208: pasted__pasted__pPipe4
+    400210: pasted__pCube3
+    400212: pasted__pCube4
+    400214: pasted__pCube43
+    400216: pasted__pCube45
+    400218: pasted__pCube46
+    400220: pasted__pCylinder1
+    400222: pasted__pCylinder11
+    400224: pCube12
+    400226: pCube14
+    400228: pCube15
+    400230: pCube16
+    400232: pCube17
+    400234: pCube2
+    400236: pCube3
+    400238: pCube4
+    400240: pCube44
+    400242: pCube45
+    400244: pCube5
+    400246: pCube6
+    400248: pCube7
+    400250: pCube9
+    400252: pCylinder1
+    400254: pCylinder11
+    400256: pCylinder3
+    400258: pCylinder4
+    400260: pCylinder5
+    400262: pCylinder7
+    400264: pCylinder8
+    400266: pCylinder9
+    400268: pTorus1
+    400270: Shield
+    400272: shoulder L
+    400274: shoulder R
+    400276: Skirt_Back_L_1
+    400278: Skirt_Back_L_2
+    400280: Skirt_Back_L_3
+    400282: Skirt_Back_R_1
+    400284: Skirt_Back_R_2
+    400286: Skirt_Back_R_3
+    400288: Skirt_Front_L_1
+    400290: Skirt_Front_L_2
+    400292: Skirt_Front_L_3
+    400294: Skirt_Front_R_1
+    400296: Skirt_Front_R_2
+    400298: Skirt_Front_R_3
+    400300: Skirt_Left_1
+    400302: Skirt_Left_2
+    400304: Skirt_Left_3
+    400306: Skirt_Right_1
+    400308: Skirt_Right_2
+    400310: Skirt_Right_3
+    400312: Sword
+    400314: //RootNode
+    400316: transform100
+    400318: transform101
+    400320: transform102
+    400322: transform103
+    400324: transform36
+    400326: transform37
+    400328: transform38
+    400330: transform39
+    400332: transform40
+    400334: transform41
+    400336: transform42
+    400338: transform43
+    400340: transform44
+    400342: transform45
+    400344: transform46
+    400346: transform47
+    400348: transform48
+    400350: transform49
+    400352: transform50
+    400354: transform51
+    400356: transform52
+    400358: transform53
+    400360: transform54
+    400362: transform55
+    400364: transform56
+    400366: transform57
+    400368: transform58
+    400370: transform59
+    400372: transform60
+    400374: transform61
+    400376: transform62
+    400378: transform63
+    400380: transform64
+    400382: transform65
+    400384: transform66
+    400386: transform67
+    400388: transform68
+    400390: transform69
+    400392: transform70
+    400394: transform71
+    400396: transform72
+    400398: transform73
+    400400: transform74
+    400402: transform75
+    400404: transform76
+    400406: transform77
+    400408: transform78
+    400410: transform79
+    400412: transform80
+    400414: transform81
+    400416: transform82
+    400418: transform83
+    400420: transform84
+    400422: transform85
+    400424: transform86
+    400426: transform87
+    400428: transform88
+    400430: transform89
+    400432: transform90
+    400434: transform91
+    400436: transform92
+    400438: transform93
+    400440: transform94
+    400442: transform95
+    400444: transform96
+    400446: transform97
+    400448: transform98
+    400450: transform99
+    400452: Twin_L
+    400454: Twin_L1
+    400456: Twin_L2
+    400458: Twin_L3
+    400460: Twin_R
+    400462: Twin_R1
+    400464: Twin_R2
+    400466: Twin_R3
+    7400000: Counter_Attack
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Counter_Attack
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.027223023
+        functionName: MoveFalse
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 8a8c6971f58ae08448aef87dda3849be,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.761428
+        functionName: MoveTrue
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 8a8c6971f58ae08448aef87dda3849be,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
