@@ -12,6 +12,17 @@ public class CGameManager : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	}
+
+    // 거리재서 비교하기
+    public bool PlayDistance(Vector3 vStart, Vector3 vEnd, float f)
+    {
+        if(Vector3.Distance(vStart, vEnd) < f)
+        {
+            return true;
+        }
+        return false;
+    }
 }

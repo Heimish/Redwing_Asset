@@ -30,7 +30,8 @@ public class CCameraRayObj : MonoBehaviour
         // 레이캐스트를 통해서 모든 오브젝트를 체크하여 카메라를 앞으로 줌함
         if (Physics.Linecast(transform.parent.position, destiredCameraPos, out hit))
         {
-            if (hit.collider.tag == "Player") return;
+            if (hit.collider.tag == "Player" || hit.collider.tag == "Boss" || hit.collider.tag == "Sword")
+                return;
             distance = Mathf.Clamp((hit.distance * 0.9f), minDistance, maxDistance);
         }
         else
@@ -49,7 +50,7 @@ public class CCameraRayObj : MonoBehaviour
     }
     public float MinCamera(float type)
     {
-        maxDistance = type;
+        minDistance = type;
         return minDistance;
     }
 }

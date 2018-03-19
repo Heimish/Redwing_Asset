@@ -24,6 +24,9 @@ public class CPlayerManager : MonoBehaviour
     private CPlayer_AniChange _CPlayer_AniChange = null;
     public CPlayer_AniChange _Player_AniChange { get { return _CPlayer_AniChange; } }
 
+    private CPlayerShild _CPlayerShild = null;
+    public CPlayerShild _PlayerShild { get { return _CPlayerShild; } }
+
     // 플레이어 속도
     [SerializeField]
     private float m_fMoveSpeed;
@@ -83,6 +86,7 @@ public class CPlayerManager : MonoBehaviour
         _CPlayerSkill = GetComponent<CPlayerSkill>();
         _PlayerController = GetComponent<CharacterController>();
         _CPlayerSwap = GetComponent <CPlayerSwap>();
+        _CPlayerShild = GetComponent<CPlayerShild>();
 
         // 플레이어 스탯 설정
         m_fMoveSpeed = 6;
@@ -136,10 +140,9 @@ public class CPlayerManager : MonoBehaviour
     }
 
     // 플레이어 데미지 처리 
-    public float PlayerHp(int type, float sizeHp)
+    public float PlayerHp(float sizeHp)
     {
-        if (type == 1) m_fPlayerHp -= sizeHp;
-        else if (type == 2) m_fPlayerHp += sizeHp;
+        m_fPlayerHp -= sizeHp;
         return m_fPlayerHp;
     }
 

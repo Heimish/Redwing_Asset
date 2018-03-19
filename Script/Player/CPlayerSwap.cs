@@ -10,6 +10,7 @@ public enum PlayerMode
 }
 public class CPlayerSwap : CPlayerBase
 {
+    private CPlayerAttackEffect _CPlayerAttackEffect;
     public Transform _Follow;
     public PlayerMode _PlayerMode = PlayerMode.Shield; // 처음엔 검방패로 시작
 
@@ -18,11 +19,14 @@ public class CPlayerSwap : CPlayerBase
     private float m_fTime;
     private float m_fDisMin;
     public float m_fMoveDir;
+    public bool m_bSwapAttack;
 
     void Start()
     {
+        _CPlayerAttackEffect = GetComponent<CPlayerAttackEffect>();
         m_fDisMin = 1.5f;
         m_fMoveDir = 5f;
+        m_bSwapAttack = false;
     }
     void Update ()
     {
@@ -44,9 +48,10 @@ public class CPlayerSwap : CPlayerBase
             // 캐릭터 0.2초동안 없애고 다시생성
             CObjActive._instance.ActiveObj(this.gameObject, 0.2f);
             // 캐릭터를 바꿨다는걸 알려줌
-            _PlayerManager.m_bSwap = true; 
+            _PlayerManager.m_bSwap = true;
         }
 
+        
         // 캐릭터를 교체 할 경우
         if (_PlayerManager.m_bSwap)
         {
@@ -55,16 +60,32 @@ public class CPlayerSwap : CPlayerBase
             // 0.2초됐을시  
             if (m_fTime >= 0.02f)
             {
+
                 // 레이캐스트 쏘고 
                 RayCastChack();
                 // 이펙트 생성
-                CEffectManager._instance.EffectCreate(0, transform.position); 
+                CEffectManager._instance.EffectCreate(0, transform.position);
+                m_bSwapAttack = true;
                 // 공격하면서 나가야하니 애니메이션도 공격부분으로 바꿔줌
                 //_PlayerManager._PlayerAni_Contorl.Animation_Change(2);
                 // 캐릭터를 다 교체함으로써 변수값을 바꿔줌
                 _PlayerManager.m_bSwap = false;
+                _PlayerManager.m_bMove = true;
+                _PlayerManager.m_bAttack = false;
                 // 시간 0초로바꿈
+                _CPlayerAttackEffect.EffectOff();
                 m_fTime = 0;
+            }
+        }
+
+        if(m_bSwapAttack)
+        {
+            _PlayerManager._PlayerAni_Contorl.Animation_Change(5);
+            m_fTime += Time.deltaTime;
+            if(m_fTime >= 0.5f)
+            {
+                m_fTime = 0;
+                m_bSwapAttack = false;
             }
         }
     }   

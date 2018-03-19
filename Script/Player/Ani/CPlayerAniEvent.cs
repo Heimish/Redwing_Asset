@@ -12,10 +12,12 @@ public class CPlayerAniEvent : CPlayerBase
     // 플레이어 움직임 막기
     public void MoveFalse()
     {
+        _PlayerManager.m_bAttack = true;
         _PlayerManager.m_bMove = false;
     }
     public void MoveTrue()
     {
+        _PlayerManager.m_bAttack = false;
         _PlayerManager.m_bMove = true;
     }
 
@@ -27,17 +29,6 @@ public class CPlayerAniEvent : CPlayerBase
     {
         CCameraFind._instance.m_bCamera = true;
     }
-
-    public void AttackTimeStart()
-    {
-        _PlayerManager.m_bAttack = true;
-    }
-
-    public void AttackTimeEnd()
-    {
-        _PlayerManager.m_bAttack = false;
-    }
-
     public void AttackComboPlus()
     {
         _PlayerManager.m_nAttackCombo++;
@@ -57,7 +48,7 @@ public class CPlayerAniEvent : CPlayerBase
         if(m_bMoveAttack)
         {
             m_fStartTime += Time.deltaTime;
-            _PlayerManager._PlayerController.Move(transform.forward * Time.deltaTime * _PlayerManager.m_MoveSpeed);
+            _PlayerManager._PlayerController.Move(transform.forward * Time.deltaTime * m_fforwordSpeed);
             if (m_fStartTime >= m_fEndTime)
             {
                 m_fStartTime = 0;

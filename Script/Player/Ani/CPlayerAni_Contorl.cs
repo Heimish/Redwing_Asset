@@ -20,11 +20,12 @@ public enum PlayerAni_State_Shild
 {
     Idle = 0,
     Run,
+    Defense_Mode,
+    Defense_ModeIdle,
+    CountAttack,
     Attack1,
     Attack2,
     Attack3,
-    TankerIdle,
-    TankerCountAttack,
     None,
 }
 
@@ -36,22 +37,33 @@ public class CPlayerAni_Contorl : CPlayerBase
     public PlayerAni_State_Scythe _PlayerAni_State_Scythe = PlayerAni_State_Scythe.None;
 
     private Animator _PlayerAniFile;
+    private bool m_bDefenseIdle;
+    public bool m_bKey;
+    private CPlayerAttackEffect _CPlayerAttackEffect;
 
     void Start ()
     {
+        _CPlayerAttackEffect = GetComponent<CPlayerAttackEffect>();
+        m_bDefenseIdle = false;
+        m_bKey = true;
         // 현재 애니메이터 값 가져오기
         _PlayerAniFile = GetComponent<Animator>();
     }
 
     void Update()
     {
+        Debug.Log(m_bKey);
         if (!_PlayerManager._PlayerSkill.m_ShildRun && _PlayerManager.m_bAnimator)
         {
             
-            if (_PlayerManager._PlayerSwap._PlayerMode == PlayerMode.Shield)
+            if (_PlayerManager._PlayerSwap._PlayerMode == PlayerMode.Shield &&
+                _PlayerManager.m_bSwap == false)
             {
-                ShieldAniGetKey();
-                ShieldAni();
+                if (_PlayerManager._PlayerSwap.m_bSwapAttack == false && m_bKey == true)
+                {
+                    ShieldAniGetKey();
+                    ShieldAni();
+                }
             }
             else
             {
@@ -92,37 +104,58 @@ public class CPlayerAni_Contorl : CPlayerBase
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // 현재 콤보가 0일경우
             if (_PlayerManager.m_nAttackCombo == 0)
+            {
+                // 1타로넘김
                 _PlayerAni_State_Shild = PlayerAni_State_Shild.Attack1;
+            }
+
+            // 공격중일경우
             if (_PlayerManager.m_bAttack)
             {
+                // 1타일때
                 if (_PlayerManager.m_nAttackCombo == 1)
+                {
+                    //2타로넘김
                     _PlayerAni_State_Shild = PlayerAni_State_Shild.Attack2;
+                }// 2타일때
                 else if (_PlayerManager.m_nAttackCombo == 2)
+                {
+                    //3타로넘김
                     _PlayerAni_State_Shild = PlayerAni_State_Shild.Attack3;
+                }
             }
         }
-        else
+        else if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (m_bDefenseIdle)
             {
-                _PlayerAni_State_Shild = PlayerAni_State_Shild.TankerIdle;
+                _PlayerAni_State_Shild = PlayerAni_State_Shild.Defense_ModeIdle;
                 if (Input.GetMouseButton(1))
                 {
-                    _PlayerAni_State_Shild = PlayerAni_State_Shild.TankerCountAttack;
+                    _PlayerAni_State_Shild = PlayerAni_State_Shild.CountAttack;
                 }
             }
             else
+                _PlayerAni_State_Shild = PlayerAni_State_Shild.Defense_Mode;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space) && _PlayerManager.m_bMove == false)
+        {
+            _PlayerManager.m_bMove = true;
+            _PlayerManager.m_bAttack = false;
+        }
+        else
+        {
+            m_bDefenseIdle = false;
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
-                Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-                {
-                    _PlayerAni_State_Shild = PlayerAni_State_Shild.Run;
-                }
-                else
-                {
-                    _PlayerAni_State_Shild = PlayerAni_State_Shild.Idle;
-                }
+                _PlayerAni_State_Shild = PlayerAni_State_Shild.Run;
+            }
+            else
+            {
+                _PlayerAni_State_Shild = PlayerAni_State_Shild.Idle;
             }
         }
     }
@@ -137,7 +170,7 @@ public class CPlayerAni_Contorl : CPlayerBase
                 }break;
             case PlayerAni_State_Shild.Idle:
                 {
-                    if(_PlayerManager.m_nAttackCombo == 0)
+                    if (_PlayerManager.m_nAttackCombo == 0)
                     {
                         if(!_PlayerManager._PlayerSkill.m_ShildRun)
                         {
@@ -151,29 +184,31 @@ public class CPlayerAni_Contorl : CPlayerBase
                     Animation_Change(1);
                 }
                 break;
-            case PlayerAni_State_Shild.Attack1:
-                {                    
+            case PlayerAni_State_Shild.Defense_Mode:
+                {
                     Animation_Change(2);
-                }
-                break;
-            case PlayerAni_State_Shild.Attack2:
+                }break;
+            case PlayerAni_State_Shild.Defense_ModeIdle:
                 {
                     Animation_Change(3);
-                }
-                break;
-            case PlayerAni_State_Shild.Attack3:
+                }break;
+            case PlayerAni_State_Shild.CountAttack:
                 {
                     Animation_Change(4);
-                }
-                break;
-            case PlayerAni_State_Shild.TankerIdle:
+                }break;
+            case PlayerAni_State_Shild.Attack1:
                 {
                     Animation_Change(5);
                 }
                 break;
-            case PlayerAni_State_Shild.TankerCountAttack:
+            case PlayerAni_State_Shild.Attack2:
                 {
                     Animation_Change(6);
+                }
+                break;
+            case PlayerAni_State_Shild.Attack3:
+                {
+                    Animation_Change(7);
                 }
                 break;
         }
@@ -221,5 +256,25 @@ public class CPlayerAni_Contorl : CPlayerBase
             _PlayerAniFile.SetInteger("motion", animation_number);
         else
             _PlayerAniFile.SetInteger("Scythe", animation_number);
+    }
+
+    public void DefenseIdle()
+    {
+        m_bDefenseIdle = true;
+        _PlayerAni_State_Shild = PlayerAni_State_Shild.Defense_ModeIdle;
+    }
+
+    public void KeyLock()
+    {
+        m_bKey = false;
+    }
+    public void KeyLockOn()
+    {
+        m_bKey = true;
+    }
+
+    public void IdleKey()
+    {
+        _PlayerAni_State_Shild = PlayerAni_State_Shild.Idle;
     }
 }
