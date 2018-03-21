@@ -20,17 +20,17 @@ public class CPlayerSwordCollder : MonoBehaviour
 
             if (CPlayerManager._instance.m_nAttackCombo == 1)
             {
-                other.GetComponent<BossParams>().SetHp(10f);
+                other.GetComponent<BossParams>().SetBossHp(10f);
                 Debug.Log("플레이어 캐릭터가 적 공격했음!");
             }
             else if (CPlayerManager._instance.m_nAttackCombo == 2)
             {
-                other.GetComponent<BossParams>().SetHp(10f);
+                other.GetComponent<BossParams>().SetBossHp(10f);
                 Debug.Log("플레이어 캐릭터가 적 공격했음!");
             }
             else if (CPlayerManager._instance.m_nAttackCombo == 3)
             {
-                other.GetComponent<BossParams>().SetHp(10f);
+                other.GetComponent<BossParams>().SetBossHp(10f);
                 Debug.Log("플레이어 캐릭터가 적 공격했음!");
             }
         }

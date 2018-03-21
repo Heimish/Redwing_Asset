@@ -6,7 +6,6 @@ public class BossParams : CharacterUI
 {
     public string names { get; set; }
     public GameObject BMHPBar;
-    public GameObject BossMonster;
     RectTransform hp;
 
     public override void InitParams()
@@ -21,7 +20,7 @@ public class BossParams : CharacterUI
         isDead = false;
     }
 
-    public void SetHp(float Damage)
+    public void SetBossHp(float Damage)
     {
         curHP -= Damage;
         if(curHP >= maxHP)
@@ -33,14 +32,6 @@ public class BossParams : CharacterUI
         {
             curHP = 0f;
             isDead = true;
-        }
-    }
-
-    public void BossisDead()
-    {
-        if(isDead == true)
-        {
-            Destroy(BossMonster, 1f);
         }
     }
 
@@ -57,9 +48,13 @@ public class BossParams : CharacterUI
 
     void Update()
     {
+        // Boss 캐릭터 HP bar 실시간 UI 상태 변화
         float _hp = curHP / 200f;
         hp.localScale = new Vector3(_hp, hp.localScale.y, hp.localScale.z);
-        BossisDead();
+
+        // Boss 캐릭터의 HP가 0 이하로 떨어지면 사망(삭제)
+        CharacterisDead();
+
         Debug.Log("보스 HP : " + curHP);
     }
 }

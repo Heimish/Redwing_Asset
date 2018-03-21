@@ -31,6 +31,14 @@ public class CharacterUI : MonoBehaviour
 
     }
 
+    public void CharacterisDead()
+    {       
+            if (isDead == true)
+            {
+                Destroy(this.gameObject, 1f);
+            }
+    }
+
     public float GetRandomAttack()
     {
         float randAttack = Random.Range(attackMin, attackMax + 1);

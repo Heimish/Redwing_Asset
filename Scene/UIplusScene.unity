@@ -5237,7 +5237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UItime: 0
   BMHPBar: {fileID: 2034130544}
-  BossMonster: {fileID: 1545319543}
 --- !u!1001 &1561358455
 Prefab:
   m_ObjectHideFlags: 0
