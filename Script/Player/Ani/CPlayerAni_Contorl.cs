@@ -37,7 +37,7 @@ public class CPlayerAni_Contorl : CPlayerBase
     public PlayerAni_State_Scythe _PlayerAni_State_Scythe = PlayerAni_State_Scythe.None;
 
     private Animator _PlayerAniFile;
-    private bool m_bDefenseIdle;
+    public bool m_bDefenseIdle;
     public bool m_bKey;
     private CPlayerAttackEffect _CPlayerAttackEffect;
 
@@ -52,7 +52,7 @@ public class CPlayerAni_Contorl : CPlayerBase
 
     void Update()
     {
-        Debug.Log(m_bKey);
+        //Debug.Log(m_bKey);
         if (!_PlayerManager._PlayerSkill.m_ShildRun && _PlayerManager.m_bAnimator)
         {
             

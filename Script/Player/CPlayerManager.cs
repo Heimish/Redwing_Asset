@@ -75,6 +75,7 @@ public class CPlayerManager : MonoBehaviour
     public bool m_bAnimator; // 기본 공격이 아닌 스킬을 사용할때 다른동작을 막기위해 사용
     public bool m_bSwap; // 스왑할때 애니메이션 Idle 안들어가게 막기
 
+    public bool m_isRotation; // 현재 플레이어가 회전중인가
 
     void Start()
     {
@@ -121,7 +122,24 @@ public class CPlayerManager : MonoBehaviour
     {
         if(CCameraFind._instance.m_bCamera)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, vPlayerQuaternion, 20 * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, vPlayerQuaternion, 800.0f * Time.deltaTime);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, vPlayerQuaternion, 20 * Time.deltaTime);
+            Vector3 Forward = _CPlayerMove.m_moveDir;
+            Quaternion rotation = transform.rotation;
+            if (Forward != Vector3.zero)
+            {
+                rotation = Quaternion.RotateTowards(
+                    rotation,
+                    Quaternion.LookRotation(Forward),
+                    1000.0f * Time.deltaTime);
+                m_isRotation = true;
+            }
+            transform.rotation = rotation;
+
+            if (Forward == transform.forward)
+            {
+                m_isRotation = false;
+            }
         }
     }
     // 플레이어 이동속도 설정

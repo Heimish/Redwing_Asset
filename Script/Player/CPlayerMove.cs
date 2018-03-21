@@ -1,59 +1,81 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class CPlayerMove : CPlayerBase
 {
+    public Vector3 m_moveDir = Vector3.zero;
+    public Vector3 m_destination = Vector3.zero;
+    public GameObject m_Cube;
     void FixedUpdate()
     {
-        // 플레이어가 이동중일때 함수실행
-        if(_PlayerManager._PlayerAni_Contorl.m_bKey)
-            MoveDirRotation();
+        Movement();
     }
-   
-    void MoveDirRotation()
-    {
-        // 각 방향키에 따른 캐릭터 8방향 로테이션
-        // 카메라각도 에서 지정각도 빼줌
-        if (Input.GetKey(KeyCode.W))
-        {
-            PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y - 0, 6);
-            if (Input.GetKey(KeyCode.A))
-                PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y - 45, 0);
-            else if (Input.GetKey(KeyCode.D))
-                PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y + 45, 0);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y - 180, 6);
-            if (Input.GetKey(KeyCode.A))
-                PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y - 135, 0);
-            else if (Input.GetKey(KeyCode.D))
-                PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y + 135, 0);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y + 90, 6);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            PlayerRotion(CCameraFind._instance._CameraRight.eulerAngles.y - 90, 6);
-        }
-        
-    }
+
+
     // 플레이어 로테이션 함수 
     void PlayerRotion(float nRotY, float fSpeed)
     {
         _PlayerManager.m_MoveSpeed = fSpeed;
         _PlayerManager.vPlayerQuaternion.eulerAngles = new Vector3(0, nRotY, 0);
-        
+
         // 플레이어가 이동중이고, 공격중이지않을때 실행
-        if (_PlayerManager.m_bMove && !_PlayerManager.m_bAttack)
+        if (_PlayerManager.m_bMove && !_PlayerManager.m_bAttack &&
+            !_PlayerManager._PlayerAni_Contorl.m_bDefenseIdle &&
+            !_PlayerManager.m_isRotation)
         {
             //if(_PlayerManager._PlayerController.isg)
-                _PlayerManager._PlayerController.Move (transform.forward * Time.deltaTime * _PlayerManager.m_MoveSpeed);
+            _PlayerManager._PlayerController.Move(transform.forward * Time.deltaTime * _PlayerManager.m_MoveSpeed);
         }
+    }
+
+    private void Movement()
+    {
+        float fHorizontal;
+        float fVertical;
+        fHorizontal = Input.GetAxis("Horizontal");
+        fVertical = Input.GetAxis("Vertical");
+
+        Vector3 horizontalPos = CCameraFind._instance.transform.right * fHorizontal;
+        Vector3 verticalPos = CCameraFind._instance.transform.forward * fVertical;
+
+        m_destination = transform.position + horizontalPos + verticalPos;
+        m_destination.y = transform.position.y;
+
+        Vector3 direction = m_destination - transform.position;
+        m_moveDir = direction.normalized;
+
+        if (!Input.GetKey(KeyCode.W) &&
+            !Input.GetKey(KeyCode.S))
+        {
+            fVertical = 0.0f;
+        }
+
+        if (!Input.GetKey(KeyCode.A) &&
+            !Input.GetKey(KeyCode.D))
+        {
+            fHorizontal = 0.0f;
+        }
+
+        if (Mathf.Abs(fHorizontal) > 0 ||
+            Mathf.Abs(fVertical) > 0)
+        {
+            _PlayerManager._PlayerAni_Contorl._PlayerAni_State_Shild = PlayerAni_State_Shild.Run;
+            PlayerRotion(0, 6);
+        }
+
+        if (Mathf.Abs(fHorizontal) == 0f &&
+            Mathf.Abs(fVertical) == 0f)
+        {
+            if (!Input.GetKey(KeyCode.A) &&
+            !Input.GetKey(KeyCode.D) &&
+            !Input.GetKey(KeyCode.W) &&
+            !Input.GetKey(KeyCode.S))
+                _PlayerManager._PlayerAni_Contorl._PlayerAni_State_Shild = PlayerAni_State_Shild.Idle;
+        }
+        //m_Cube.transform.position = transform.position + direction.normalized;
     }
 
 
 }
+
