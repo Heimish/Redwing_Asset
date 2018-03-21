@@ -33,6 +33,9 @@ public class CPlayerSwap : CPlayerBase
         // Q버튼을 누르면 직업이 바뀜
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            // swap 실행시, SP 소모
+            GetComponent<PlayerParams>().SetcSp(-10f);
+
             if (_PlayerMode == PlayerMode.Shield)
             {
                 SwapObj(false, false, true);

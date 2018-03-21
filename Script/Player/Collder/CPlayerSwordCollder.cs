@@ -3,20 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CPlayerSwordCollder : MonoBehaviour
-{       
+{
+    private BossParams _BossParams;
+
+    void Start()
+    {
+        _BossParams = GetComponent<BossParams>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Boss")
+        if (other.tag == "Boss")
         {
             CBossManager._instance._BossMat.m_bBossAttackMatch = true;
             CBossManager._instance._BossMat.m_fMatchTime = 0;
 
             if (CPlayerManager._instance.m_nAttackCombo == 1)
-                Debug.Log("1타");
+            {
+                other.GetComponent<BossParams>().SetHp(10f);
+                Debug.Log("플레이어 캐릭터가 적 공격했음!");
+            }
             else if (CPlayerManager._instance.m_nAttackCombo == 2)
-                Debug.Log("2타");
+            {
+                other.GetComponent<BossParams>().SetHp(10f);
+                Debug.Log("플레이어 캐릭터가 적 공격했음!");
+            }
             else if (CPlayerManager._instance.m_nAttackCombo == 3)
-                Debug.Log("3타");
+            {
+                other.GetComponent<BossParams>().SetHp(10f);
+                Debug.Log("플레이어 캐릭터가 적 공격했음!");
+            }
         }
     }
 }

@@ -41,8 +41,16 @@ public class CPlayerAni_Contorl : CPlayerBase
     public bool m_bKey;
     private CPlayerAttackEffect _CPlayerAttackEffect;
 
+    //UI
+    private CharacterUI _CharacterUI;
+    private PlayerParams _PlayerParams;
+
     void Start ()
     {
+        //UI
+        _CharacterUI = GetComponent<CharacterUI>();
+        _PlayerParams = GetComponent<PlayerParams>();
+
         _CPlayerAttackEffect = GetComponent<CPlayerAttackEffect>();
         m_bDefenseIdle = false;
         m_bKey = true;
@@ -175,6 +183,9 @@ public class CPlayerAni_Contorl : CPlayerBase
                         if(!_PlayerManager._PlayerSkill.m_ShildRun)
                         {
                             Animation_Change(0);
+
+                            // UI : 캐릭터 SP 회복 속도 빠르게
+                            _PlayerParams.SpUset();
                         }
                     }
                 }
@@ -182,33 +193,57 @@ public class CPlayerAni_Contorl : CPlayerBase
             case PlayerAni_State_Shild.Run:
                 {
                     Animation_Change(1);
+
+                    // UI : 캐릭터 SP 회복 속도 빠르게
+                    _PlayerParams.SpUset();
                 }
                 break;
             case PlayerAni_State_Shild.Defense_Mode:
                 {
                     Animation_Change(2);
-                }break;
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
+                }
+                break;
             case PlayerAni_State_Shild.Defense_ModeIdle:
                 {
                     Animation_Change(3);
-                }break;
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
+                }
+                break;
             case PlayerAni_State_Shild.CountAttack:
                 {
                     Animation_Change(4);
-                }break;
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
+                }
+                break;
             case PlayerAni_State_Shild.Attack1:
                 {
                     Animation_Change(5);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
             case PlayerAni_State_Shild.Attack2:
                 {
                     Animation_Change(6);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
             case PlayerAni_State_Shild.Attack3:
                 {
                     Animation_Change(7);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
         }
@@ -222,26 +257,41 @@ public class CPlayerAni_Contorl : CPlayerBase
                 {
                     if (_PlayerManager.m_nAttackCombo == 0)
                         Animation_Change(0);
+
+                    // UI : 캐릭터 SP 회복 속도 빠르게
+                    _PlayerParams.SpUset();
                 }
                 break;
             case PlayerAni_State_Scythe.Run:
                 {
                     Animation_Change(1);
+
+                    // UI : 캐릭터 SP 회복 속도 빠르게
+                    _PlayerParams.SpUset();
                 }
                 break;
             case PlayerAni_State_Scythe.Attack1:
                 {
                     Animation_Change(2);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
             case PlayerAni_State_Scythe.Attack2:
                 {
                     Animation_Change(3);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
             case PlayerAni_State_Scythe.Attack3:
                 {
                     Animation_Change(4);
+
+                    // UI : 캐릭터 SP 회복 속도 느리게(반으로)
+                    _PlayerParams.SpHalfUset();
                 }
                 break;
 
