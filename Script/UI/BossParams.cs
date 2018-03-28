@@ -23,14 +23,10 @@ public class BossParams : CharacterUI
     public void SetBossHp(float Damage)
     {
         curHP -= Damage;
-        if(curHP >= maxHP)
-        {
-            curHP = maxHP;
-        }
+        curHP = Mathf.Clamp(curHP, 0, maxHP);
 
-        else if(curHP <= 0f)
+        if (curHP == 0)
         {
-            curHP = 0f;
             isDead = true;
         }
     }
@@ -55,6 +51,6 @@ public class BossParams : CharacterUI
         // Boss 캐릭터의 HP가 0 이하로 떨어지면 사망(삭제)
         CharacterisDead();
 
-        Debug.Log("보스 HP : " + curHP);
+       // Debug.Log("보스 HP : " + curHP);
     }
 }

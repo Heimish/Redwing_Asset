@@ -42,14 +42,12 @@ public class PlayerParams : CharacterUI
     public void SetHp(float Damage)
     {
         curHP -= Damage;
-        if (curHP >= maxHP)
-        {
-            curHP = maxHP;
-        }
+        curHP = Mathf.Clamp(curHP, 0, maxHP);
 
-        else if (curHP <= 0f)
+        Debug.Log("캐릭터HP : " + curHP);
+
+        if (curHP == 0)
         {
-            curHP = 0f;
             isDead = true;
         }
     }
@@ -57,14 +55,7 @@ public class PlayerParams : CharacterUI
     public void SetcSp(float _csp)
     {
         curSP += _csp;
-        if (curSP >= maxSP)
-        {
-            curSP = maxSP;
-        }
-        else if (curSP <= 0f)
-        {
-            curSP = 0f;           
-        }
+        curSP = Mathf.Clamp(curSP, 0, maxSP);
     }
 
     public void SpUset()
@@ -96,8 +87,7 @@ public class PlayerParams : CharacterUI
         // player 캐릭터 HP bar 실시간 UI 상태 변화
         float _hp = curHP / 100f;
         hp.localScale = new Vector3(_hp, hp.localScale.y, hp.localScale.z);
-        Debug.Log("캐릭터HP : " + curHP);
-        Debug.Log("스테미너" + curSP);
+        //Debug.Log("스테미너" + curSP);
 
         // Player 캐릭터의 HP가 0 이하로 떨어지면 사망(삭제)
         CharacterisDead();
